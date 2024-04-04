@@ -33,6 +33,7 @@ async function startServer() {
 
         // Routes
         app.use('/api', cryptoRoutes );
+        app.use('/', (req, res) => res.status(200).json({message:'This is Home'}) );
 
 
         app.listen(port, () => {
