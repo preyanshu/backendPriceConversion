@@ -24,8 +24,7 @@ async function fetchHistoricalData(currency, date) {
 export async function getExchangeRate(req, res) {
     try {
         const { fromCurrency, toCurrency, date } = req.body;
-        
-        // Fetch historical market data of the 'fromCurrency' on the specified date
+    
         const fromCurrencyData = await fetchHistoricalData(fromCurrency, date);
         if (!fromCurrencyData) {
             return res.status(400).json({ error: `Failed to get historical data of ${fromCurrency}` });

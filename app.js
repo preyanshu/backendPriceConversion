@@ -3,6 +3,8 @@ import bodyParser from 'body-parser';
 import dotenv from "dotenv";
 import cors from 'cors';
 import { job } from './controllers/cryptoUpdater.js';
+import swaggerAutogen from 'swagger-autogen';
+import swaggerUi from 'swagger-ui-express';
 
 
 dotenv.config();
@@ -16,6 +18,10 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/',swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+
+
 
 // MongoDB Connection
 async function startServer() {
