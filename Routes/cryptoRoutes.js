@@ -9,5 +9,6 @@ const router = express.Router();
 router.get('/cryptoUpdate', (req, res) => updateCryptos(res));
 router.post('/getCompanies', getCompaniesHoldingCrypto);
 router.post('/getExchangeRate', getExchangeRate);
+router.get('/health', (req, res) => res.status(200).json({message:'OK'}) );
 
 export default router;
